@@ -5,7 +5,7 @@ class App extends React.Component {
 		super(props);
 	}
 	render() {
-		return <div>Hello {this.props.name}</div>
+		return <div>Hello update2 {this.props.name}</div>
 	}
 }
 

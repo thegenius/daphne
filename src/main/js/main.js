@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Editor} from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 import App from './components/App';
 
@@ -53,8 +55,15 @@ var Input = React.createClass({
   }
 });
 
+function  onEditorStateChange (){ 
+	return null;
+}
+function uploadImageCallBack  (){
+	return null;
+}
 ReactDOM.render(
 	<div>
+		<div> update 7 </div>
 		<Input />
 		<LikeButton />
 		<MyInputComponent />

@@ -3,28 +3,33 @@ var webpack = require('webpack');
 var copyFile = require('transfer-webpack-plugin');
 
 module.exports = {
-	entry: './src/main/js/main.js',
+	entry: "./src/main/js/main.js",
 	output: {
-		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'build'),
+		filename: 'bundle.js',
 	},
 	devServer: {
 		contentBase: path.join(__dirname, 'build'),
-		host: 'www.lvonce.com',
-		port: 3333
 	},
 
 	module: {
-		loaders:[{
-			test: /\.js$/,
-			exclude: /node_modules/,
-			loader: 'babel-loader',
-			query: { presets:['react', 'latest']} 
-		}]
+		loaders:[
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: 'babel-loader',
+				query: { presets:['react', 'latest']} 
+			},
+			{
+				test: /\.css$/,
+				loader: 'style-loader!css-loader'
+			}
+
+
+]
 	},
 
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
 		new copyFile([{from:'src/main/html', to:'.'}])
 	]
 };
